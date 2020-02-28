@@ -1,0 +1,49 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<style>
+
+</style>
+<body style="background-color: whitesmoke;">
+
+<nav class="navbar navbar-expand-sm bg-info navbar-dark">
+  <ul class="nav navbar" style="color: black;font-size: 30px">
+      <li class="nav-item" style="width: 300px">
+      <b>E-Bidding</b>
+    </li>
+          <li class="nav-item" style="margin-left: 300px;width: 300px">
+      <b>{{ data.name }}</b>
+    </li>
+      <li class="nav-item" style="margin-left: 300px">
+          <img src="{{ data.image.url }}" height="50" width="50">
+    </li>
+  </ul>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2" style="background-color: #bbffd6;text-align: center;text-decoration: none">
+            <p style="margin-top: 30px"><a href="{% url 'home_user' %}">Home</a></p><br>
+            <p><a href="{% url 'buyer' %}">BUYER</a></p><br>
+            <p><a href="{% url 'seller' %}" >SELLER</a></p><br>
+            <p style="padding-bottom: 246px"><a href="{% url 'log_out' %}">Logout</a></p><br>
+
+        </div>
+        <div class="col-md-10">
+            {% block body %}
+            {% endblock%}
+        </div>
+
+    </div>
+</div>
+{% include 'footer.html' %}
+</body>
+</html>

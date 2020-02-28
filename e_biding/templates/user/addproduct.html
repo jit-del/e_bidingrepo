@@ -1,0 +1,46 @@
+{% extends 'user/seller.html' %}
+
+{% load staticfiles %}
+<html>
+<body style="">
+{% block view %}
+ <div class="container" style="background-color:whitesmoke;margin-top: 30px">
+ <div class="row">
+            <div class="offset-3 col-md-6">
+
+  <form action="{% url 'product' %}" method="post"  enctype="multipart/form-data">
+      {% csrf_token %}
+
+       <div class="form-group">
+      <label for="catagore" style="color: hotpink" >Catagore:</label>
+      <input type="text" class="form-control" id="name" placeholder="Enter Ctagore" name="c1">
+    </div>
+    <div class="form-group">
+      <label for="name" style="color: hotpink" >Name:</label>
+      <input type="text" class="form-control" id="name" placeholder="Enter name" name="n1">
+    </div>
+    <div class="form-group">
+      <label for="price" style="color: hotpink" >Price:</label>
+      <input type="number" class="form-control" id="price" placeholder="Enter price" name="p1">
+    </div>
+       <div class="form-group">
+      <label for="description" style="color: hotpink" >Description:</label>
+           <textarea class="form-control" id="price" placeholder="Description" name="d1"></textarea>
+    </div>
+
+      <div class="form-group">
+          <label for="image" style="color: hotpink">Image:</label>
+          <input type="file" class="form-control0" id="image" placeholder="image" name="img">
+      </div>
+    <button type="submit" class="btn btn-primary">Upload</button>
+  </form>
+  {% for x in messages %}
+      <p style="text-align: center;margin-top: 10px;padding: 10px;border: 2px dotted indianred;background-color:yellowgreen">{{ x }}</p>
+{% endfor %}
+</div>
+ </div>
+ </div>
+{% endblock %}
+</body>
+</html>
+

@@ -1,0 +1,31 @@
+{% extends 'home.html' %}
+{% load staticfiles %}
+<html>
+<body style="">
+{% block body %}
+ <div class="container" style="background-color: #fbe4f6">
+ <div class="row">
+            <div class="offset-3 col-md-6">
+  <h2 align="center"><img src="{% static 'logo-login-png-4.png' %}" height="200" width="400"></h2>
+  <form action="{% url 'u_logincheck' %}" method="post">
+      {% csrf_token %}
+    <div class="form-group">
+      <label for="email" style="color: hotpink" >Email:</label>
+      <input type="email" class="form-control" id="email" placeholder="Enter email" name="uemail">
+    </div>
+    <div class="form-group">
+      <label for="pwd" style="color: hotpink" >Password:</label>
+      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="upswd">
+    </div>
+    <button type="submit" class="btn btn-primary">Login</button>
+  </form>
+  {% if msg %}
+      <p style="text-align: center;margin-top: 10px;padding: 10px;border: 2px dotted indianred;background-color:yellowgreen">{{ msg }}</p>
+{% endif %}
+</div>
+ </div>
+ </div>
+{% endblock %}
+</body>
+</html>
+

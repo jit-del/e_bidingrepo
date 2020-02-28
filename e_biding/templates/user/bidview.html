@@ -1,0 +1,33 @@
+{% extends 'welcome.html' %}
+{% load staticfiles %}
+{% block body %}
+    <div class="container" style="color: skyblue">
+
+    <html>
+    <table align="center"  class="table table-bordered table-hover">
+
+    <thead>
+        <tr class="bg-warning">
+
+            <th>P_name</th>
+            <th>price</th>
+            <th>Status</th>
+            <th>img</th>
+        </tr>
+    </thead>
+        {% for x in data4 %}
+            <tbody>
+            <tr class="bg-info">
+            <td>{{ x.pid.p_name }}</td>
+            <td>{{ x.amount }}</td>
+            <td>{{ x.pid.p_status }}</td>
+            <td><img src="{{ x.pid.img.url }}" height="60" width="60"></td>
+
+            </tr>
+            </tbody>
+        {% endfor %}
+
+    </table>
+    </html>
+    </div>
+{% endblock %}

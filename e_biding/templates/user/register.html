@@ -1,0 +1,43 @@
+{% extends 'home.html' %}
+{% load staticfiles %}
+<html>
+<body style="">
+{% block body %}
+ <div class="container" style="background-color:#fbe4f6">
+ <div class="row">
+            <div class="offset-3 col-md-6">
+  <h2 align="center"><img src="{% static 'register-button-png-26.png' %}" height="100" width="300"></h2>
+  <form action="{% url 'registersucces' %}" method="post"  enctype="multipart/form-data">
+      {% csrf_token %}
+    <div class="form-group">
+      <label for="name" style="color: hotpink" >Name:</label>
+      <input type="text" class="form-control" id="name" placeholder="Enter name" name="name">
+    </div>
+    <div class="form-group">
+      <label for="contact" style="color: hotpink" >Contact:</label>
+      <input type="number" class="form-control" id="contact" placeholder="Enter contact" name="contact">
+    </div>
+      <div class="from-group">
+          <label for="email" style="color: hotpink">Email:</label>
+          <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+      </div>
+      <div class="form-group">
+          <label for="password" style="color: hotpink">Password:</label>
+          <input type="password" class="form-control" id="password" placeholder="password" name="password">
+      </div>
+      <div class="form-group">
+          <label for="image" style="color: hotpink">Image:</label>
+          <input type="file" class="form-control0" id="image" placeholder="image" name="img">
+      </div>
+    <button type="submit" class="btn btn-primary">Register</button>
+  </form>
+  {% for x in messages %}
+      <p style="text-align: center;margin-top: 10px;padding: 10px;border: 2px dotted indianred;background-color:yellowgreen">{{ x }}</p>
+{% endfor %}
+</div>
+ </div>
+ </div>
+{% endblock %}
+</body>
+</html>
+

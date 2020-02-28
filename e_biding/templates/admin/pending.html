@@ -1,0 +1,109 @@
+{% extends 'welcomeadmin.html' %}
+{% load staticfiles %}
+{% block body %}
+
+<div class="container" style="color: skyblue">
+
+  {% if d1 %}
+      <h2 align="center">Pending Record</h2>
+  <table class="table table-bordered table-hover">
+    <thead>
+      <tr class="bg-danger">
+          <th>Image</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Password</th>
+        <th>contact</th>
+        <th>date</th>
+        <th>Id</th>
+        <th>status</th>
+        <th>Approved</th>
+        <th>Declined</th>
+      </tr>
+    </thead>
+      {% for x in d1 %}
+    <tbody>
+      <tr>
+        <td><img src="{{ x.image.url }}" height="60" width="60"></td>
+        <td>{{ x.name }}</td>
+        <td>{{ x.email }}</td>
+        <td>{{ x.pasw }}</td>
+        <td>{{ x.contact }}</td>
+        <td>{{ x.date }}</td>
+        <td>{{ x.id }}</td>
+        <td>{{ x.status }}</td>
+          <td><a href="{% url 'aadminaprove' %}?x={{ x.id }}" class="btn btn-success"><span>&check;</span></a> </td>
+          <td><a href="{% url 'admindeclint' %}?y={{ x.id }}" class="btn btn-danger"><span>&cross;</span></a> </td>
+      </tr>
+    </tbody>
+      {% endfor %}
+  </table>
+  {% elif d2 %}
+         <h2 align="center">Approved Record</h2>
+  <table class="table">
+    <thead>
+      <tr class="table-danger">
+          <th>Image</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Password</th>
+        <th>contact</th>
+        <th>date</th>
+        <th>Id</th>
+        <th>status</th>
+        <th>Declined</th>
+      </tr>
+    </thead>
+      {% for x in d2 %}
+    <tbody>
+      <tr class="table-success">
+        <td><img src="{{ x.image.url }}" height="60" width="60"></td>
+        <td>{{ x.name }}</td>
+        <td>{{ x.email }}</td>
+        <td>{{ x.pasw }}</td>
+        <td>{{ x.contact }}</td>
+        <td>{{ x.date }}</td>
+        <td>{{ x.id }}</td>
+        <td>{{ x.status }}</td>
+          <td><a href="{% url 'admin_declint' %}?y={{ x.id }}" class="btn btn-danger"><span>&check;</span></a> </td>
+      </tr>
+    </tbody>
+      {% endfor %}
+  </table>
+      {% elif d3 %}
+         <h2 align="center">Declined Record</h2>
+  <table class="table">
+    <thead>
+      <tr class="table-danger">
+          <th>Image</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Password</th>
+        <th>contact</th>
+        <th>date</th>
+        <th>Id</th>
+        <th>status</th>
+        <th>Approved</th>
+      </tr>
+    </thead>
+      {% for x in d3 %}
+    <tbody>
+      <tr class="table-success">
+        <td><img src="{{ x.image.url }}" height="60" width="60"></td>
+        <td>{{ x.name }}</td>
+        <td>{{ x.email }}</td>
+        <td>{{ x.pasw }}</td>
+        <td>{{ x.contact }}</td>
+        <td>{{ x.date }}</td>
+        <td>{{ x.id }}</td>
+        <td>{{ x.status }}</td>
+          <td><a href="{% url 'aadmina_prove' %}?x={{ x.id }}" class="btn btn-success"><span>&check;</span></a> </td>
+      </tr>
+    </tbody>
+      {% endfor %}
+  </table>
+      {% else %}
+      <h2 align="center" style="margin-top: 150px;margin-right: 30px;letter-spacing: 10px;color: #07eb0a">No Record Found</h2>
+  {% endif %}
+</div>
+{% endblock %}

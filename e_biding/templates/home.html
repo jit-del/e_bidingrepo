@@ -1,0 +1,81 @@
+{% load staticfiles %}
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+</head>
+<body >
+<style>
+    .cls{
+        background: url("{% static 'mobile-group.png' %}");
+        background-size: cover;
+        backdrop-filter:blur(0px);
+        background-color: #fbe4f6;
+    }
+</style>
+<nav class="navbar navbar-expand-sm bg-warning navbar-blue fixed-top">
+  <a class="navbar-brand" href="#"><img src="{% static 'reducecost_u8fr.png' %}" height="100" width="200"></a>
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'ho_me' %}">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'user' %}">Login</a>
+    </li>
+      <li class="nav-item">
+      <a class="nav-link" href="{% url 'register' %}">Register</a>
+    </li>
+         <li class="nav-item">
+      <a class="nav-link" href="{% url 'admin' %}">Admin</a>
+    </li>
+  </ul>
+</nav>
+
+<div class="container-fluid" style="margin-top:75px;background-color: #c0ecfb">
+  <h3>Top Fixed Navbar</h3>
+    <marquee><h1 align="center" style="color: #27154f">Welcome To Bidding >>>> This Day Is Your</h1></marquee>
+</div>
+
+<div class="container-fluid cls" style="height: 600px">
+{% block body %}
+{% endblock %}
+</div>
+<table align="center" border="0" width="1250" style="margin-right: 20px">
+
+        <th colspan="4" style="text-align: center;color: #23ed86;font-size: 45px">Upcoming Action</th>
+     <tr>
+         <th><img src="{% static 'mo1.jpeg' %}" height="400" width="200"></th>
+         <th><img src="{% static 'mo2.jpeg' %}" height="400" width="200"></th>
+         <th><img src="{% static 'mo3.jpeg' %}" height="400" width="200"></th>
+         <th><img src="{% static 'mo4.jpeg' %}" height="400" width="200"></th>
+         <th><img src="{% static 'mo4.jpeg' %}" height="400" width="200"></th>
+
+    </tr>
+</table>
+
+<div class="container-fluid" style="margin-top:10px" align="center">
+   <table style="background-color: #fbe4f6">
+       <tr>
+           <th><span style="text-align: center;font-size: 30px;color: #bc8f8f">Bidderboy's Online Auction Rules</span><hr>
+               <p  style="color: #19ff68">
+                   >>>>One User Account Per Person / IP Address / House is allowed
+                   Group Bidding is strictly not allowed</p>
+               <p  style="color: #19ff68">>>>>
+                   Do not use any 3rd party bidding softwares</p>
+               <p  style="color: #19ff68">>>>> of bots for bidding
+                   Misleading USER IDs are not allowed - Please don't </p>
+               <p style="color: #19ff68"> >>>>your tricks
+                   Violation of rules will result in Suspension of your account</p>
+           </th>
+
+       </tr>
+   </table>
+</div>
+
+</body>
+</html>

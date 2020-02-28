@@ -1,0 +1,29 @@
+{% extends 'welcome.html' %}
+{% load staticfiles %}
+{% block body %}
+    <div class="row" align="center">
+
+    {% for x in data3 %}
+        {% if x.uid_id != data.id %}
+     <div class="col-md-3" style="margin-bottom: 20px">
+     <table bgcolor=#fffafa >
+         <form action="{% url 'save_bid' %}" method="post">
+             {% csrf_token %}
+         <tr align="center">
+             <th><a href="{% url 'bid_view' %}?x={{ x.pid_id }}"><img src="{{ x.pid.img.url }}" height="200" width="120" style="margin-top: 20px" ></a> </th>
+         </tr>
+         <tr style="text-align: center"><th>{{ x.pid.p_name }}</th></tr>
+         <tr><th>price : {{ x.maxamount }}</th></tr>
+         <tr><th>{{ x.pid.dics }}</th></tr>
+         <tr><th><input type="number" placeholder="Enter your bid price" style="border-radius: 10px;border: 2px solid chocolate" name="p1"><button type="submit">bid</button> </th></tr>
+         <tr><th><input type="hidden" value="{{ x.pid_id }}" name="p_id"></th></tr>
+         </form>
+     </table>
+     </div>
+        {% endif %}
+    {% endfor %}
+    </div>
+       {% for x in messages %}
+      <p style="text-align: center;margin-top: 10px;padding: 10px;border: 2px dotted indianred;background-color:yellowgreen">{{ x }}</p>
+{% endfor %}
+{% endblock %}
